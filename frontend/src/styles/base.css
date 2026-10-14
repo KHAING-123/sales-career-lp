@@ -1,0 +1,224 @@
+/* 全体の基本スタイル */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--header-height);
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-base);
+  font-size: var(--fs-body);
+  line-height: 1.8;
+  color: var(--color-text);
+  background: var(--color-bg);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, p, ul, ol, dl, dd, figure {
+  margin: 0;
+}
+
+ul, ol {
+  padding: 0;
+  list-style: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-turquoise);
+  outline-offset: 3px;
+}
+
+.container {
+  width: 100%;
+  max-width: calc(var(--container-width) + var(--gutter) * 2);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.section {
+  position: relative;
+  padding-block: var(--section-space);
+}
+
+.pre-line {
+  white-space: pre-line;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* ---------- セクション見出し（番号 01〜06） ---------- */
+.section-heading {
+  position: relative;
+  margin-bottom: clamp(32px, 4vw, 56px);
+}
+
+.section-heading__number {
+  display: flex;
+  align-items: flex-end;
+  gap: 14px;
+  font-family: var(--font-en);
+  line-height: 1;
+}
+
+.section-heading__num {
+  font-size: var(--fs-number);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  background: var(--gradient-number);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.section-heading__label {
+  position: relative;
+  padding-bottom: 0.6em;
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: var(--color-turquoise);
+}
+
+.section-heading__label::before {
+  content: "";
+  display: inline-block;
+  width: 28px;
+  height: 2px;
+  margin-right: 10px;
+  vertical-align: middle;
+  background: var(--color-yellow);
+  border-radius: 2px;
+}
+
+.section-heading__title {
+  margin-top: 16px;
+  font-size: var(--fs-h2);
+  font-weight: 900;
+  line-height: 1.45;
+  letter-spacing: 0.04em;
+  white-space: pre-line;
+}
+
+.section-heading__desc {
+  margin-top: 20px;
+  color: var(--color-text-sub);
+  line-height: 2;
+  white-space: pre-line;
+}
+
+.section-heading--center {
+  text-align: center;
+}
+
+.section-heading--center .section-heading__number {
+  justify-content: center;
+}
+
+.section-heading--center .section-heading__desc {
+  max-width: 720px;
+  margin-inline: auto;
+}
+
+/* ---------- ボタン ---------- */
+.btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 56px;
+  padding: 14px 36px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+  isolation: isolate;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.btn--primary {
+  color: var(--color-white);
+  background: var(--color-navy);
+  box-shadow: var(--shadow-button);
+}
+
+.btn--yellow {
+  color: var(--color-navy);
+  background: var(--color-yellow);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+}
+
+.btn__arrow {
+  display: inline-grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--color-turquoise);
+  color: var(--color-white);
+  transition: transform 0.3s ease;
+}
+
+.btn--yellow .btn__arrow {
+  background: var(--color-navy);
+}
+
+.btn__arrow svg {
+  width: 12px;
+  height: 12px;
+}
+
+/* ---------- 画像が未設定のときの枠 ---------- */
+.img-placeholder {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  min-height: 120px;
+  padding: 16px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-text-sub);
+  text-align: center;
+  background:
+    repeating-linear-gradient(45deg, rgba(25, 196, 212, 0.08) 0 12px, transparent 12px 24px),
+    var(--color-bg-blue);
+  border: 2px dashed var(--color-turquoise-light);
+  border-radius: var(--radius-md);
+}

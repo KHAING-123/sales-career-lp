@@ -1,0 +1,79 @@
+/* ============================================================
+   色・フォント・余白をまとめて管理しています。
+   ここの値を変えると、LP全体に反映されます。
+   色は「#」から始まるカラーコードで指定します。
+   ============================================================ */
+:root {
+  /* ---------- メインの色 ---------- */
+  --color-navy: #102b69;         /* メインカラー（見出し・本文・ボタン） */
+  --color-navy-light: #2a4a8f;   /* ネイビーの明るい版 */
+  --color-turquoise: #19c4d4;    /* アクセント（番号・ライン・強調） */
+  --color-turquoise-light: #7fe3ec;
+  --color-yellow: #ffd84d;       /* サブアクセント（「未来」の強調など） */
+  --color-yellow-light: #fff1b8;
+  --color-white: #ffffff;
+  --color-text: #102b69;         /* 本文の文字色 */
+  --color-text-sub: #4a5b80;     /* 補足文の文字色 */
+
+  /* ---------- 背景の色 ---------- */
+  --color-bg: #f4fcff;           /* ページ全体の背景 */
+  --color-bg-blue: #e3f6fc;      /* 淡いブルーの背景 */
+  --color-bg-cyan: #d3f3f7;      /* 淡いシアンの背景 */
+  --color-bg-yellow: #fff8dc;    /* 淡いイエローの背景 */
+
+  /* ---------- 背景のグラデーション・装飾 ---------- */
+  --gradient-hero: linear-gradient(160deg, #e4f7fd 0%, #f4fcff 45%, #fffbe9 100%);
+  --gradient-section: linear-gradient(180deg, #f4fcff 0%, #e8f8fc 100%);
+  --gradient-accent: linear-gradient(90deg, #19c4d4 0%, #4fa8f0 100%);
+  --gradient-number: linear-gradient(135deg, #19c4d4 0%, #3f8cf0 100%);
+  --decor-wave-blue: #dcf4fb;    /* 波型装飾（ブルー） */
+  --decor-wave-cyan: #c9f0f5;    /* 波型装飾（シアン） */
+  --decor-blob-yellow: #fff0b0;  /* 丸い装飾（イエロー） */
+  --decor-blob-blue: #cdeefa;    /* 丸い装飾（ブルー） */
+
+  /* ---------- キャリアのステップごとの色 ---------- */
+  --color-step-1: #19c4d4;
+  --color-step-2: #3f9cf0;
+  --color-step-3: #f5b82e;
+  --color-step-4: #102b69;
+
+  /* ---------- 最後のCTAの文字 ---------- */
+  --cta-text-color: #ffffff;
+  --cta-overlay: linear-gradient(180deg, rgba(16, 43, 105, 0.15) 0%, rgba(16, 43, 105, 0.55) 100%);
+
+  /* ---------- フッター ---------- */
+  --color-footer-bg: #102b69;
+  --color-footer-text: #ffffff;
+
+  /* ---------- フォント ---------- */
+  --font-base: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  --font-en: "Montserrat", "Noto Sans JP", sans-serif;
+
+  --fs-hero: clamp(2.25rem, 1.2rem + 3.6vw, 4rem);
+  --fs-h2: clamp(1.625rem, 1.2rem + 1.4vw, 2.5rem);
+  --fs-h3: clamp(1.125rem, 1rem + 0.4vw, 1.375rem);
+  --fs-body: 1rem;
+  --fs-small: 0.875rem;
+  --fs-number: clamp(3.5rem, 2.5rem + 3vw, 6rem);
+
+  /* ---------- 余白・サイズ ---------- */
+  --container-width: 1200px;
+  --gutter: clamp(16px, 4vw, 40px);
+  --section-space: clamp(80px, 9vw, 140px);
+  --header-height: 80px;
+
+  /* ---------- 角丸・影 ---------- */
+  --radius-sm: 12px;
+  --radius-md: 20px;
+  --radius-lg: 32px;
+  --radius-pill: 999px;
+  --shadow-card: 0 10px 30px rgba(16, 43, 105, 0.08);
+  --shadow-card-hover: 0 16px 40px rgba(16, 43, 105, 0.14);
+  --shadow-button: 0 8px 20px rgba(16, 43, 105, 0.22);
+}
+
+@media (max-width: 767px) {
+  :root {
+    --header-height: 64px;
+  }
+}

@@ -1,0 +1,40 @@
+/* ============================================================
+   画面幅ごとの共通調整
+   PC：1280px以上 / 小型PC・タブレット：768〜1279px / スマホ：767px以下
+   （各セクション固有の調整は、それぞれの .vue ファイル内に書いています）
+   ============================================================ */
+
+/* PC/スマホで表示を切り替えるための補助クラス */
+.only-sp {
+  display: none;
+}
+
+@media (max-width: 1279px) {
+  :root {
+    --container-width: 1040px;
+  }
+}
+
+@media (max-width: 767px) {
+  .only-pc {
+    display: none;
+  }
+
+  .only-sp {
+    display: initial;
+  }
+
+  body {
+    font-size: 0.9375rem;
+  }
+
+  .section-heading__desc {
+    line-height: 1.9;
+  }
+
+  .btn {
+    width: 100%;
+    max-width: 360px;
+    padding-inline: 24px;
+  }
+}

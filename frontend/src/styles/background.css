@@ -1,0 +1,97 @@
+/* ============================================================
+   背景の装飾（波型・曲線・丸いグラデーション・光の移動）
+   色は variables.css の --decor-〇〇 で変更できます。
+   ============================================================ */
+
+/* 装飾を入れる親要素 */
+.has-decor {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+/* ふんわりした丸いグラデーション */
+.bg-blob {
+  position: absolute;
+  z-index: -1;
+  border-radius: 50%;
+  filter: blur(8px);
+  pointer-events: none;
+}
+
+.bg-blob--yellow {
+  background: radial-gradient(circle at 40% 40%, var(--decor-blob-yellow) 0%, rgba(255, 240, 176, 0) 70%);
+}
+
+.bg-blob--blue {
+  background: radial-gradient(circle at 50% 50%, var(--decor-blob-blue) 0%, rgba(205, 238, 250, 0) 70%);
+}
+
+.bg-blob--cyan {
+  background: radial-gradient(circle at 50% 50%, var(--decor-wave-cyan) 0%, rgba(201, 240, 245, 0) 70%);
+}
+
+/* 波型（SVG）。fill は currentColor なので color で色を変えられます */
+.bg-wave {
+  position: absolute;
+  left: 0;
+  z-index: -1;
+  display: block;
+  width: 100%;
+  height: clamp(60px, 9vw, 140px);
+  pointer-events: none;
+}
+
+.bg-wave--top {
+  top: -1px;
+}
+
+.bg-wave--bottom {
+  bottom: -1px;
+}
+
+.bg-wave path {
+  fill: currentColor;
+}
+
+/* 有機的な曲線（大きな楕円の一部） */
+.bg-curve {
+  position: absolute;
+  z-index: -1;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* セクションごとの背景 */
+.bg-light {
+  background: var(--color-bg);
+}
+
+.bg-blue {
+  background: var(--gradient-section);
+}
+
+.bg-white {
+  background: var(--color-white);
+}
+
+/* 光の移動（Soft Light Sweep） */
+.light-sweep {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.light-sweep::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -60%;
+  width: 45%;
+  height: 200%;
+  background: linear-gradient(100deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.55) 50%, rgba(255, 255, 255, 0) 100%);
+  transform: rotate(12deg);
+  animation: light-sweep 14s ease-in-out infinite;
+}
