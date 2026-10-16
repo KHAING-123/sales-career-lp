@@ -16,6 +16,60 @@
   transform: none;
 }
 
+/* セクション見出し（01〜06）：番号 → 英字ラベル → タイトル → 説明文の順に1文字ずつ表示
+   （見出しが画面に入ると SectionHeading.vue が .is-inview を、説明文が画面に入ると AnimatedParagraph.vue が .is-revealed を付けます。
+     --char-delay は文字ごとの遅延） */
+.split-group {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.split-char {
+  display: inline-block;
+  white-space: pre;
+  opacity: 0;
+  transform: translateY(15px);
+  filter: blur(4px);
+  transition:
+    opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--char-delay, 0s);
+}
+
+.section-heading__num,
+.section-heading__label::before {
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+/* 説明文用：タイトルより小さく軽い動き */
+.split-char--soft {
+  transform: translateY(10px);
+  filter: blur(2px);
+  transition-duration: 0.45s;
+}
+
+.is-inview .section-heading__label .split-char,
+.is-inview .section-heading__title .split-char,
+.is-inview .section-heading__num,
+.is-inview .section-heading__label::before,
+.is-revealed .split-char--soft {
+  opacity: 1;
+  transform: none;
+  filter: none;
+}
+
+/* セクション番号の光：番号のフェードイン完了後に開始。約1.8秒で左→右へ通過し、残りは静止（7秒周期） */
+.is-inview .section-heading__num {
+  animation: number-light-sweep 7s ease-in-out 0.9s infinite;
+}
+
+@keyframes number-light-sweep {
+  0% { background-position: 100% 0, 0 0; }
+  26%, 100% { background-position: 0% 0, 0 0; }
+}
+
 /* アイコンの小さな浮遊 */
 .float {
   animation: float 5s ease-in-out infinite;
@@ -47,6 +101,71 @@
 /* キャリアラインの進行（SVGの線を描く） */
 @keyframes draw-line {
   to { stroke-dashoffset: 0; }
+}
+
+/* ---------- 02 WORK ---------- */
+/* 丸いアイコン全体の浮遊 */
+@keyframes work-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+/* STEP 1：吹き出しの点が順番に上下 */
+@keyframes work-chat-dot {
+  0%, 60%, 100% { transform: translateY(0); }
+  30% { transform: translateY(-3.5px); }
+}
+
+/* 小さな光（スパークル）が柔らかく明滅 */
+@keyframes work-sparkle {
+  0%, 100% { opacity: 0.45; transform: scale(0.92); }
+  50% { opacity: 1; transform: scale(1.05); }
+}
+
+/* STEP 3：時々だけ現れる光 */
+@keyframes work-sparkle-occasional {
+  0%, 55%, 100% { opacity: 0; transform: scale(0.85); }
+  70%, 82% { opacity: 1; transform: scale(1); }
+}
+
+/* STEP 2：書類の行が上から順に現れる（4秒周期・最後に静止してからリセット） */
+@keyframes work-doc-line {
+  0% { stroke-dashoffset: 1; opacity: 1; }
+  18%, 88% { stroke-dashoffset: 0; opacity: 1; }
+  96%, 100% { stroke-dashoffset: 0; opacity: 0; }
+}
+
+/* STEP 2：チェックマークを描く */
+@keyframes work-doc-check {
+  0%, 30% { stroke-dashoffset: 1; opacity: 1; }
+  45%, 88% { stroke-dashoffset: 0; opacity: 1; }
+  96%, 100% { stroke-dashoffset: 0; opacity: 0; }
+}
+
+/* STEP 2：黄色の丸が少しだけ弾む */
+@keyframes work-doc-badge {
+  0%, 44%, 60%, 100% { transform: scale(1); }
+  51% { transform: scale(1.1); }
+}
+
+/* STEP 3：循環矢印がゆっくり回転 */
+@keyframes work-cycle-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ドット線の上を流れる光（約6.4秒で通過し、残りは待機） */
+@keyframes work-orb-flow {
+  0% { offset-distance: 0%; opacity: 0; }
+  5% { opacity: 1; }
+  74% { opacity: 1; }
+  80% { offset-distance: 100%; opacity: 0; }
+  100% { offset-distance: 100%; opacity: 0; }
+}
+
+/* ステップ間の矢印が右（SPでは下）へ少し動く */
+@keyframes work-arrow-nudge {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(3px); }
 }
 
 /* ボタンのホバー */
@@ -98,8 +217,16 @@
     transition-delay: 0s !important;
   }
 
-  .reveal {
+  .reveal,
+  .split-char,
+  .section-heading__num,
+  .section-heading__label::before {
     opacity: 1;
     transform: none;
+    filter: none;
+  }
+
+  .is-inview .section-heading__num {
+    animation: none;
   }
 }

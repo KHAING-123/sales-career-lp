@@ -24,15 +24,20 @@ const img = (path) => files[`../assets/images/${path}`] ?? null
 export const images = {
   // ロゴ（ヘッダー・フッター）
   logo: {
-    src: img("logo/preai-logo.png"), // 横長のロゴ。推奨サイズ：幅 360px × 高さ 96px
+    src: img("logo/preai-logo.png"), // 横長・背景透明のロゴ。現在：191 × 35px（高解像度版は 2倍以上を推奨）
+    size: [191, 35],                 // 画像の縦横サイズ（表示前の場所取り用）
     alt: "PREAI",
   },
 
-  // ファーストビューの人物イラスト（背景は透明のPNG推奨）
+  // ファーストビュー（キャッチコピー・人物を含んだ1枚画像。横幅いっぱいに表示されます）
   hero: {
-    pc: img("hero/sales-hero-pc.png"), // PC用。推奨サイズ：1200 × 1000px
-    sp: img("hero/sales-hero-sp.png"), // スマホ用。推奨サイズ：750 × 700px
-    alt: "笑顔でお客様と向き合うセールスメンバーのイラスト",
+    pc: img("hero/sales-hero-pc.png"), // PC用（768px以上）。現在：1672 × 941px
+    sp: img("hero/sales-hero-sp.png"), // スマホ用（767px以下）。現在：1024 × 1536px
+    // 画像の縦横サイズ（表示前の場所取り用。画像のサイズを変えた場合はここも合わせると表示がなめらかです）
+    pcSize: [1672, 941],
+    spSize: [1024, 1536],
+    // 画像内のキャッチコピーをそのまま記載（ページの見出しとして使われます）
+    alt: "人と企業の未来をつなぎ、社会を動かす。 More Possibilities Together - PREAI セールス職採用",
   },
 
   // 最後のCTAの背景（都市の風景と人物シルエット）
@@ -64,12 +69,7 @@ export const images = {
   // アイコン（推奨サイズ：240 × 240px・正方形・背景透明）
   // ※ アイコンは文章の装飾なので alt は空欄にしています
   icons: {
-    // 02 WORK
-    work: {
-      hearing: img("icons/work/icon-hearing.png"),
-      proposal: img("icons/work/icon-proposal.png"),
-      follow: img("icons/work/icon-follow.png"),
-    },
+    // 02 WORK のアイコンは画像ではなくSVGで描いています（components/work/WorkStepIcon.vue）
     // 03 VALUE
     value: {
       impact: img("icons/value/icon-impact.png"),

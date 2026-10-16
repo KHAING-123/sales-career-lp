@@ -11,6 +11,8 @@
   --color-turquoise-light: #7fe3ec;
   --color-yellow: #ffd84d;       /* サブアクセント（「未来」の強調など） */
   --color-yellow-light: #fff1b8;
+  --color-nav-en: #18bfcf;       /* ヘッダーメニューの英語ラベル */
+  --color-nav-en-hover: #0ea9c0; /* 同・ホバー時 */
   --color-white: #ffffff;
   --color-text: #102b69;         /* 本文の文字色 */
   --color-text-sub: #4a5b80;     /* 補足文の文字色 */
@@ -22,14 +24,62 @@
   --color-bg-yellow: #fff8dc;    /* 淡いイエローの背景 */
 
   /* ---------- 背景のグラデーション・装飾 ---------- */
-  --gradient-hero: linear-gradient(160deg, #e4f7fd 0%, #f4fcff 45%, #fffbe9 100%);
   --gradient-section: linear-gradient(180deg, #f4fcff 0%, #e8f8fc 100%);
   --gradient-accent: linear-gradient(90deg, #19c4d4 0%, #4fa8f0 100%);
   --gradient-number: linear-gradient(135deg, #19c4d4 0%, #3f8cf0 100%);
+  /* セクション番号（01〜06）の表面を流れる光（斜め約20度・半透明の白〜ライトシアン） */
+  --number-light: linear-gradient(
+    110deg,
+    transparent 41%,
+    rgba(140, 232, 245, 0.28) 44.5%,
+    rgba(189, 247, 255, 0.5) 47.5%,
+    rgba(255, 255, 255, 0.62) 50%,
+    rgba(189, 247, 255, 0.5) 52.5%,
+    rgba(140, 232, 245, 0.28) 55.5%,
+    transparent 59%
+  );
   --decor-wave-blue: #dcf4fb;    /* 波型装飾（ブルー） */
   --decor-wave-cyan: #c9f0f5;    /* 波型装飾（シアン） */
   --decor-blob-yellow: #fff0b0;  /* 丸い装飾（イエロー） */
   --decor-blob-blue: #cdeefa;    /* 丸い装飾（ブルー） */
+
+  /* ---------- ヘッダー・ファーストビュー周辺の背景 ----------
+     Hero画像の上端・下端の色を淡くしたもの（画像を差し替えたら合わせて調整してください）
+     スマホ用の値は、このファイル下部の「スマホ」の欄で上書きしています */
+  --hero-header-bg: linear-gradient(90deg, #fffdf7 0%, #f6fcfe 22%, #e6f7fe 38%, #ddf4fd 55%, #fff9db 82%, #f2fbef 100%);
+  --hero-bottom-bg: linear-gradient(90deg, #dff2f6 0%, #edf2e2 28%, #fff9db 44%, #eaf9fd 60%, #eefbfd 80%, #f2fbf3 100%);
+  --hero-bottom-fade-height: clamp(48px, 6vw, 96px); /* 画像下で次のセクションの背景へなじませる高さ */
+
+  /* ---------- Hero下の波型ライン（PremiumWaveDivider） ---------- */
+  --wave-main: #c7eff5;       /* ラインの色 */
+  --wave-sub: #ddf8fb;        /* ライン中央付近の色 */
+  --wave-highlight: #e9fcff;  /* ライン中央のハイライト */
+  --orb-main: #16bdd2;        /* 移動する青い丸の色 */
+  --orb-center: #7cebf5;      /* 丸の中央の明るい色 */
+  --orb-glow: #a6f1f8;        /* 丸の外側のグロー */
+
+  /* ---------- 02 WORK（3ステップ） ---------- */
+  --work-glow-1: #d9f5ff;      /* STEP 1 アイコンの背景の光（ブルー） */
+  --work-glow-2: #dff9f0;      /* STEP 2（ミント） */
+  --work-glow-3: #fff4c7;      /* STEP 3（イエロー） */
+  --work-glow-blue: #e3f6ff;   /* アイコン左下の淡い光 */
+  /* カードの背景（STEP 1：ブルー / STEP 2：ミント / STEP 3：クリームイエロー） */
+  --work-card-bg-1: linear-gradient(155deg, #ffffff 0%, #f0faff 55%, #ddf5ff 100%);
+  --work-card-bg-2: linear-gradient(155deg, #ffffff 0%, #f1fcf8 55%, #dff8f1 100%);
+  --work-card-bg-3: linear-gradient(155deg, #ffffff 0%, #fffcf1 55%, #fff3d4 100%);
+  /* 円形アイコン内側の背景（白いリングの内側） */
+  --work-icon-bg-1: radial-gradient(circle at 35% 30%, #ffffff 0%, #eaf9ff 55%, #d4f2ff 100%);
+  --work-icon-bg-2: radial-gradient(circle at 35% 30%, #ffffff 0%, #eafbf5 55%, #d7f6ea 100%);
+  --work-icon-bg-3: radial-gradient(circle at 35% 30%, #ffffff 0%, #fffbef 55%, #fff0c8 100%);
+  --work-icon-blue: #3b7ff0;   /* アイコンの線（ブルー） */
+  --work-icon-cyan: #22c4e0;   /* アイコンの線（シアン） */
+  --work-icon-yellow: #ffc93c; /* アイコンの黄色 */
+  --work-dot: #21c4e0;         /* ドット線 */
+  --work-dot-light: #6addea;   /* ドット線（明るい側）・流れる光 */
+  --work-dot-pale: #b6f2f8;    /* ドット線の下の淡い帯 */
+  --work-bg-cyan: #ddf6ff;     /* セクション背景の波・曲線 */
+  --work-bg-mint: #e7faf4;     /* セクション背景の中央の光 */
+  --work-bg-cream: #fff9e5;    /* セクション背景の右側の光 */
 
   /* ---------- キャリアのステップごとの色 ---------- */
   --color-step-1: #19c4d4;
@@ -62,6 +112,10 @@
   --section-space: clamp(80px, 9vw, 140px);
   --header-height: 80px;
 
+  /* ---------- ロゴの表示幅（高さは縦横比に合わせて自動） ---------- */
+  --header-logo-width: 120px;
+  --footer-logo-width: 120px;
+
   /* ---------- 角丸・影 ---------- */
   --radius-sm: 12px;
   --radius-md: 20px;
@@ -75,5 +129,8 @@
 @media (max-width: 767px) {
   :root {
     --header-height: 64px;
+    /* スマホ用Hero画像の色に合わせた背景 */
+    --hero-header-bg: linear-gradient(90deg, #eaf9fd 0%, #ddf4fd 45%, #fffbe6 70%, #fff9db 85%, #eaf8ee 100%);
+    --hero-bottom-bg: linear-gradient(90deg, #e3f1e3 0%, #e9f1dd 30%, #fff9db 46%, #e6f9f9 64%, #fbfde9 80%, #e1f9fd 100%);
   }
 }

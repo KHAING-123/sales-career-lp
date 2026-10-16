@@ -1,6 +1,7 @@
 <script setup>
 import Header from './components/Header.vue'
 import HeroSection from './components/HeroSection.vue'
+import PremiumWaveDivider from './components/PremiumWaveDivider.vue'
 import MembersSection from './components/MembersSection.vue'
 import WorkSection from './components/WorkSection.vue'
 import ValueSection from './components/ValueSection.vue'
@@ -15,6 +16,7 @@ import Footer from './components/Footer.vue'
   <Header />
   <main id="top">
     <HeroSection />
+    <PremiumWaveDivider />
     <MembersSection />
     <WorkSection />
     <ValueSection />

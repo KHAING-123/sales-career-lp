@@ -100,7 +100,12 @@ button {
   font-size: var(--fs-number);
   font-weight: 800;
   letter-spacing: -0.02em;
-  background: var(--gradient-number);
+  /* 上：光の帯（数字の幅の約2.5倍。普段は右外に置いて見えない）／下：数字の青いグラデーション
+     どちらも文字の形で切り抜くため、光は数字の内側にしか表示されない */
+  background: var(--number-light), var(--gradient-number);
+  background-size: 250% 100%, 100% 100%;
+  background-position: 100% 0, 0 0;
+  background-repeat: no-repeat;
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -202,6 +207,14 @@ button {
 .btn__arrow svg {
   width: 12px;
   height: 12px;
+}
+
+/* ---------- ロゴ画像（ヘッダー・フッター共通） ---------- */
+.logo-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
 }
 
 /* ---------- 画像が未設定のときの枠 ---------- */

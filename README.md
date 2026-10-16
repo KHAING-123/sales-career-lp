@@ -25,10 +25,9 @@ PREAI セールス職向け採用LP（Vue 3 + Vite）です。
 3. `"` と `"` の間の文字だけを書き換えて保存します。
 
 ```js
-hero: {
-  titleLines: ["人と企業の", "未来をつなぎ、", "社会を動かす。"], // 1行ずつ
-  titleAccent: "未来",                                           // イエローで強調する文字
-  buttonText: "話を詳しく聞いてみる",
+members: {
+  title: "どんな人が\n働いている？",
+  description: "20代〜30代を中心に、…",
 },
 ```
 
@@ -60,8 +59,8 @@ export const ctaLink = {
 
 | 場所 | ファイル | 推奨サイズ |
 | --- | --- | --- |
-| ファーストビュー人物（PC） | `images/hero/sales-hero-pc.png` | 1200 × 1000px（背景透明） |
-| ファーストビュー人物（スマホ） | `images/hero/sales-hero-sp.png` | 750 × 700px（背景透明） |
+| ファーストビュー（PC・キャッチコピー込みの1枚画像） | `images/hero/sales-hero-pc.png` | 1672 × 941px |
+| ファーストビュー（スマホ・キャッチコピー込みの1枚画像） | `images/hero/sales-hero-sp.png` | 1024 × 1536px |
 | 最後のCTA背景（PC） | `images/cta/sales-final-cta-pc.png` | 2880 × 1120px |
 | 最後のCTA背景（スマホ） | `images/cta/sales-final-cta-sp.png` | 750 × 1200px |
 | メンバー写真 | `images/members/member-01〜03.png` | 480 × 480px（正方形） |
@@ -69,12 +68,13 @@ export const ctaLink = {
 | 1日の流れの人物 | `images/daily/daily-person.png` | 800 × 1100px（背景透明） |
 | 各アイコン | `images/icons/〇〇/icon-〇〇.png` | 240 × 240px（正方形・背景透明） |
 | SNSアイコン | `images/icons/sns/icon-〇〇.svg` | 白一色のSVG |
-| ロゴ | `images/logo/preai-logo.png` | 360 × 96px（横長） |
+| ロゴ | `images/logo/preai-logo.png` | 横長・背景透明（現在 191 × 35px。2倍以上の解像度推奨） |
 
 （`images/` は `frontend/src/assets/images/` のことです）
 
 - 現在入っている画像はすべて **仮画像（SAMPLE と書かれたもの）** です。正式素材に差し替えてください。
-- 画像の上に文字を入れないでください。見出しやボタンの文字はHTMLで表示しています（CTA背景も同様）。
+- ファーストビューのみ、キャッチコピーを画像に含めています（文章を変える場合は画像を作り直してください）。ボタンはHTMLで画像の下に表示しています。
+- それ以外の画像には文字を入れないでください。見出しやボタンの文字はHTMLで表示しています（CTA背景も同様）。
 - 推奨サイズと縦横比が近ければ、画像を替えてもレイアウトは崩れません。
 - 画像ファイルが無い・壊れている場合は、自動的に「画像未設定：〇〇」という枠が表示されます。
 - ファイル名を変えたい場合や、PNG以外（WebP・JPG・SVG）を使いたい場合は、`frontend/src/data/imageConfig.js` の該当行のファイル名を書き換えてください。
@@ -83,7 +83,15 @@ export const ctaLink = {
 ## 4. ロゴの変更方法
 
 `frontend/src/assets/images/logo/preai-logo.png` を新しいロゴ画像で上書きします。
-ヘッダーとフッターの両方に反映されます。横長（目安 360 × 96px）の背景透明PNGがおすすめです。
+ヘッダーとフッターの両方に反映されます。余白を詰めた横長・背景透明のPNGがおすすめです（表示幅の2倍以上の解像度だと高精細な画面でもくっきり表示されます）。
+
+表示サイズは `frontend/src/styles/variables.css` の以下で変更できます（高さは自動）。
+
+```css
+--header-logo-width: 120px;  /* ヘッダーのロゴ幅 */
+--footer-logo-width: 120px;  /* フッターのロゴ幅 */
+```
+
 SVGを使う場合は `preai-logo.svg` として置き、`imageConfig.js` の `logo` の行を `img("logo/preai-logo.svg")` に変更します。
 
 ## 5. 背景色・色の変更方法
@@ -95,7 +103,6 @@ SVGを使う場合は `preai-logo.svg` として置き、`imageConfig.js` の `l
 --color-turquoise: #19c4d4;   /* アクセント */
 --color-yellow: #ffd84d;      /* サブアクセント */
 --color-bg: #f4fcff;          /* ページ全体の背景 */
---gradient-hero: linear-gradient(...);  /* ファーストビューの背景 */
 --decor-wave-cyan: #c9f0f5;   /* 波型の装飾 */
 --color-step-1〜4             /* キャリアの各ステップの色 */
 --cta-overlay                 /* 最後のCTAの画像に重ねる色（文字を読みやすくする） */

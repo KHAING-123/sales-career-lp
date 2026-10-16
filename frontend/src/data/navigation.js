@@ -12,14 +12,15 @@ export const ctaLink = {
   newTab: true, // true：新しいタブで開く / false：同じタブで開く
 }
 
-// ヘッダーのメニュー（href はページ内の各セクションへのリンクです）
+// ヘッダーのメニュー
+//   label：日本語 / labelEn：英語（小さく表示。大文字で表示されます） / href：ページ内の各セクションへのリンク
 export const navItems = [
-  { label: "働く人", href: "#people" },
-  { label: "仕事内容", href: "#work" },
-  { label: "魅力", href: "#value" },
-  { label: "キャリア", href: "#career" },
-  { label: "1日の流れ", href: "#daily" },
-  { label: "選考フロー", href: "#selection" },
+  { label: "働く人", labelEn: "PEOPLE", href: "#people" },
+  { label: "仕事内容", labelEn: "WORK", href: "#work" },
+  { label: "魅力", labelEn: "VALUE", href: "#value" },
+  { label: "キャリア", labelEn: "CAREER", href: "#career" },
+  { label: "1日の流れ", labelEn: "DAILY", href: "#daily" },
+  { label: "選考フロー", labelEn: "SELECTION", href: "#selection" },
 ]
 
 // フッターのリンク

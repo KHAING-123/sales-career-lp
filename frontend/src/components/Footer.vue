@@ -23,7 +23,7 @@ onBeforeUnmount(() => window.removeEventListener('scroll', onScroll))
     <div class="footer__inner container">
       <div class="footer__brand">
         <a href="#top" class="footer__logo">
-          <LpImage :src="images.logo.src" :alt="images.logo.alt" placeholder="logo/preai-logo.png" width="180" height="48" />
+          <LpImage class="logo-image" :src="images.logo.src" :alt="images.logo.alt" placeholder="logo/preai-logo.png" :width="images.logo.size[0]" :height="images.logo.size[1]" />
         </a>
         <p class="footer__message">{{ content.message }}</p>
         <address class="footer__company">
@@ -86,22 +86,17 @@ onBeforeUnmount(() => window.removeEventListener('scroll', onScroll))
 
 /* ロゴは白い角丸の上に表示（濃い背景でも読みやすくするため） */
 .footer__logo {
-  display: inline-block;
-  width: 180px;
-  height: 64px;
-  padding: 10px 16px;
+  display: block;
+  box-sizing: content-box;
+  width: var(--footer-logo-width);
+  padding: 14px 20px;
   background: var(--color-white);
   border-radius: var(--radius-sm);
 }
 
-.footer__logo :deep(img) {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-
 .footer__logo :deep(.img-placeholder) {
   min-height: 0;
+  aspect-ratio: 4 / 1;
   padding: 0;
   font-size: 0.5625rem;
   border-radius: 6px;
