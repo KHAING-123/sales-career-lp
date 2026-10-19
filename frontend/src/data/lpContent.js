@@ -89,6 +89,7 @@ export const lpContent = {
 
   // ------------------------------------------------------------
   // 03 VALUE｜この仕事の魅力
+  //   icon：丸いアイコンの種類（globe：地球 / factory：工場 / people：人物）
   // ------------------------------------------------------------
   value: {
     number: "03",
@@ -98,16 +99,19 @@ export const lpContent = {
     items: [
       {
         id: "impact",
+        icon: "globe",
         title: "社会にインパクトを与える",
         text: "AIの導入を通じて、企業の働き方や産業そのものを変えていく。その変化の起点に立てる仕事です。",
       },
       {
         id: "industry",
+        icon: "factory",
         title: "幅広い業界と関われる",
         text: "製造・小売・金融・医療など、多様な業界のお客様と向き合うことで、視野とビジネス知識が大きく広がります。",
       },
       {
         id: "people",
+        icon: "people",
         title: "人との出会いが財産になる",
         text: "経営者や現場のリーダーなど、多くの人との出会いと信頼関係が、あなた自身のかけがえのない財産になります。",
       },
@@ -116,6 +120,7 @@ export const lpContent = {
 
   // ------------------------------------------------------------
   // 04 CAREER｜キャリアと成長環境
+  //   icon：丸いアイコンの種類（sprout：芽 / person：人物とアイデア / chart：成長グラフ / rocket：ロケット）
   // ------------------------------------------------------------
   career: {
     number: "04",
@@ -130,6 +135,7 @@ export const lpContent = {
         yearUnit: "年目",
         title: "営業スキルを習得",
         text: "研修とOJTで、ヒアリングや提案の基礎を身につけます。",
+        icon: "sprout",
       },
       {
         id: "year2",
@@ -137,6 +143,7 @@ export const lpContent = {
         yearUnit: "年目",
         title: "一人で提案が\nできるように成長",
         text: "担当顧客を持ち、自ら課題を見つけて提案を組み立てます。",
+        icon: "person",
       },
       {
         id: "year3",
@@ -144,6 +151,7 @@ export const lpContent = {
         yearUnit: "年目",
         title: "チームをリードし\nより大きな案件に挑戦",
         text: "後輩の育成にも関わりながら、大型案件をリードします。",
+        icon: "chart",
       },
       {
         id: "year5",
@@ -151,6 +159,7 @@ export const lpContent = {
         yearUnit: "年目",
         title: "マネジメントや\n新しい事業にも挑戦",
         text: "チームのマネジメントや新規事業の立ち上げにも挑戦できます。",
+        icon: "rocket",
       },
     ],
   },

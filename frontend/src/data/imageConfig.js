@@ -70,19 +70,8 @@ export const images = {
   // ※ アイコンは文章の装飾なので alt は空欄にしています
   icons: {
     // 02 WORK のアイコンは画像ではなくSVGで描いています（components/work/WorkStepIcon.vue）
-    // 03 VALUE
-    value: {
-      impact: img("icons/value/icon-impact.png"),
-      industry: img("icons/value/icon-industry.png"),
-      people: img("icons/value/icon-people.png"),
-    },
-    // 04 CAREER
-    career: {
-      year1: img("icons/career/icon-year1.png"),
-      year2: img("icons/career/icon-year2.png"),
-      year3: img("icons/career/icon-year3.png"),
-      year5: img("icons/career/icon-year5.png"),
-    },
+    // 03 VALUE のアイコンは画像ではなくSVGで描いています（components/value/ValueIcon.vue）
+    // 04 CAREER のアイコンは画像ではなくSVGで描いています（components/career/CareerIcon.vue）
     // 05 DAILY
     daily: {
       morning: img("icons/daily/icon-morning.png"),

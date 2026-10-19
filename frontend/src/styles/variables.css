@@ -81,6 +81,41 @@
   --work-bg-mint: #e7faf4;     /* セクション背景の中央の光 */
   --work-bg-cream: #fff9e5;    /* セクション背景の右側の光 */
 
+  /* ---------- 03 VALUE（3カード：1枚目ブルー / 2枚目クリームイエロー / 3枚目ミント） ---------- */
+  --value-card-bg-1: linear-gradient(150deg, #ffffff 0%, #f2fbff 55%, #e2f6fe 100%);
+  --value-card-bg-2: linear-gradient(150deg, #ffffff 0%, #fffcf2 55%, #fff4d8 100%);
+  --value-card-bg-3: linear-gradient(150deg, #ffffff 0%, #f2fcf8 55%, #e1f8f0 100%);
+  --value-border-1: rgba(190, 233, 248, 0.7);   /* カードの細い枠線 */
+  --value-border-2: rgba(247, 230, 182, 0.7);
+  --value-border-3: rgba(190, 236, 220, 0.7);
+  --value-icon-bg-1: radial-gradient(circle at 35% 30%, #ffffff 0%, #eaf9ff 55%, #d4f2ff 100%); /* アイコンの円 */
+  --value-icon-bg-2: radial-gradient(circle at 35% 30%, #ffffff 0%, #fffbef 55%, #fff0c8 100%);
+  --value-icon-bg-3: radial-gradient(circle at 35% 30%, #ffffff 0%, #eafbf5 55%, #d7f6ea 100%);
+  --value-glow-1: #bfeafc;   /* アイコン周りの光 */
+  --value-glow-2: #ffe7a3;
+  --value-glow-3: #bff0dd;
+
+  /* ---------- 04 CAREER（背景・カード・アイコン） ---------- */
+  --career-bg: linear-gradient(180deg, #f4fbfe 0%, #f0fafd 100%); /* セクションの背景 */
+  --career-wave-blue: #dcf2fb;    /* 背景のウェーブ（左） */
+  --career-wave-yellow: #fdf5d8;  /* 背景のウェーブ（右） */
+  --career-glow-mint: #e2f8f1;    /* 背景の中央の光 */
+  --career-glow-yellow: #fff3cc;  /* 背景の右上の光 */
+  --career-city: #b9dcef;         /* 下部の都市シルエット */
+  --career-line-halo: #d3f1fa;    /* 成長ラインの下の淡い帯 */
+  --career-card-border: rgba(205, 232, 245, 0.8);
+  --career-card-tint-1: #eefbfd;  /* カード下部のごく淡い色（1年目〜5年目） */
+  --career-card-tint-2: #eef6fe;
+  --career-card-tint-3: #fffaeb;
+  --career-card-tint-4: #eef3fb;
+  --career-icon-bg-1: radial-gradient(circle at 35% 30%, #ffffff 0%, #eafafc 55%, #d4f3f7 100%); /* アイコンの円 */
+  --career-icon-bg-2: radial-gradient(circle at 35% 30%, #ffffff 0%, #eaf4fe 55%, #d6e9fc 100%);
+  --career-icon-bg-3: radial-gradient(circle at 35% 30%, #ffffff 0%, #fff8e6 55%, #ffedc2 100%);
+  --career-icon-bg-4: radial-gradient(circle at 35% 30%, #ffffff 0%, #ecf2fb 55%, #d9e4f6 100%);
+  --career-icon-blue: #2f6fe4;    /* アイコンの色 */
+  --career-icon-cyan: #22c4e0;
+  --career-icon-yellow: #ffc93c;
+
   /* ---------- キャリアのステップごとの色 ---------- */
   --color-step-1: #19c4d4;
   --color-step-2: #3f9cf0;
